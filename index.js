@@ -17,6 +17,11 @@ app.use(cors({
   ],
   credentials: true
 }));
+// CORS middleware
+
+
+
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -323,12 +328,13 @@ app.delete('/finalizedorders/:userId', async (req, res) => {
         sameSite: 'Lax',
       }).send({ success: true, message: "Logged out" });
     });
+    
 
     // Test
     app.get('/', (req, res) => res.send('Hello World! from it-server final'));
 
     // Start server
-    app.listen(port, () => console.log(`Server running on port ${port}`));
+    // app.listen(port, () => console.log(`Server running on port ${port}`));
 
   } catch (err) {
     console.error(err);
@@ -336,3 +342,4 @@ app.delete('/finalizedorders/:userId', async (req, res) => {
 }
 
 run().catch(console.error);
+module.exports = app;
